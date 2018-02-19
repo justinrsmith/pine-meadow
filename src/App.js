@@ -4,10 +4,6 @@ import NavBar from './NavBar';
 import Stream from './Stream';
 import './App.css';
 
-import logo from './logo.svg';
-import cardinal from './images/cardinal-icon.png';
-import cat from './images/cat-icon.png';
-
 class App extends Component {
     render() {
         return (

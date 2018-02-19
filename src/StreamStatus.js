@@ -5,7 +5,7 @@ import cardinal from './images/cardinal-icon.png';
 class StreamStatus extends Component {
     constructor(props) {
         super(props);
-        this.state = { status: true };
+        this.state = { online: null };
     }
     componentDidMount() {
         var that = this;
@@ -22,14 +22,16 @@ class StreamStatus extends Component {
 
     render() {
         let status = null;
-        if(this.state.online)
+        if(this.state.online === null)
+            status =  <span className="badge badge-danger">Loading</span>
+        else if(this.state.online)
             status = <span className="badge badge-danger"><i className="fa fa-video-camera" aria-hidden="true"></i> Live</span>
-        else
+        else if(!this.state.online)
             status =  <span className="badge badge-danger">Offline</span>
 
         return (
             <ul id="stream-status" className="list-inline" style={{marginBottom: '0px'}}>
-                <li className="list-inline-item"><img className="tab-img" height="25" src={cardinal}/>Cam</li>
+                <li className="list-inline-item"><img alt="cardinal camera logo" className="tab-img" height="25" src={cardinal}/>Cam</li>
                 <li style={{marginTop: '5px'}} className="list-inline-item pull-right">{status}</li>
             </ul>
         )
