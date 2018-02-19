@@ -1,0 +1,10 @@
+body {
+     background-color: #F5F3EE;
+     padding-top: 75px;
+}
+a {
+    color: #26C281;
+}
+#stream-status {
+    max-width: 640px;
+}
