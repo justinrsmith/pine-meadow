@@ -1,22 +1,67 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
+import { authUser, signOutUser } from './libs/awsLib';
 
 import NavBar from './NavBar';
-import Stream from './Stream';
+import Routes from './Routes';
+
 import './App.css';
 
 class App extends Component {
-    render() {
-        return (
-          <div className="App">
-              <NavBar/>
-              <div className="container-fluid">
-                  <div className="row">
-                      <Stream url="http://73.74.197.134:48461/"/>
-                  </div>
-              </div>
-          </div>
-        );
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isAuthenticated: false,
+      isAuthenticating: true
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      if (await authUser()) {
+        this.userHasAuthenticated(true);
+      }
     }
+    catch(e) {
+      alert(e);
+    }
+
+    this.setState({ isAuthenticating: false });
+  }
+
+  userHasAuthenticated = authenticated => {
+    this.setState({isAuthenticated: authenticated});
+  }
+
+  handleLogout = event => {
+    signOutUser();
+
+    this.userHasAuthenticated(false);
+
+    this.props.history.push('/');
+  }
+
+  render() {
+    const childProps = {
+      isAuthenticated: this.state.isAuthenticated,
+      userHasAuthenticated: this.userHasAuthenticated
+    };
+
+    return (
+      !this.state.isAuthenticating &&
+      <div className='App'>
+        <NavBar />
+        {this.state.isAuthenticated
+          ? <button onClick={this.handleLogout}>Logout</button>
+          : [
+              <a href='/login'>Login</a>
+          ]}
+        <Routes childProps={childProps} />
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);
