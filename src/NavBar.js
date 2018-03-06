@@ -59,9 +59,9 @@ class NavBar extends Component {
                   <i className="fa fa-sign-in" aria-hidden="true" /> Logout
                 </button>
               ) : (
-                  <a href="/login" className="btn btn-outline-light">
-                    <i className="fa fa-sign-in" aria-hidden="true" /> Login
-                  </a>
+                <a href="/login" className="btn btn-outline-light">
+                  <i className="fa fa-sign-in" aria-hidden="true" /> Login
+                </a>
               )}
             </li>
           </ul>

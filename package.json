@@ -5,6 +5,9 @@
   "proxy": "http://127.0.0.1:5000",
   "dependencies": {
     "amazon-cognito-identity-js": "^2.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
@@ -18,11 +21,10 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
   },
-  "devDependencies": {
-    "husky": "^0.14.3",
-    "lint-staged": "^7.0.0",
-    "prettier": "1.11.1"
-  }
+  "devDependencies": {}
 }
