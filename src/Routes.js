@@ -6,10 +6,11 @@ import Home from './Home';
 import Login from './Login';
 import NotFound from './NotFound';
 
-export default ({ childProps }) =>
+export default ({ childProps }) => (
   <Switch>
-    <AppliedRoute path='/' exact component={Home} props={childProps} />
-    <AppliedRoute path='/login' exact component={Login} props={childProps} />
-    { /* Finally, catch all unmatched routes */ }
+    <AppliedRoute path="/" exact component={Home} props={childProps} />
+    <AppliedRoute path="/login" exact component={Login} props={childProps} />
+    {/* Finally, catch all unmatched routes */}
     <Route component={NotFound} />
-  </Switch>;
+  </Switch>
+);

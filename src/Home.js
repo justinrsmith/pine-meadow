@@ -7,7 +7,7 @@ class Home extends Component {
     return (
       <div className="Home container-fluid">
         <div className="row">
-            <Stream url="http://73.74.197.134:48461/"/>
+          <Stream url="http://73.74.197.134:48461/" />
         </div>
       </div>
     );

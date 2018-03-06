@@ -23,8 +23,7 @@ class App extends Component {
       if (await authUser()) {
         this.userHasAuthenticated(true);
       }
-    }
-    catch(e) {
+    } catch (e) {
       alert(e);
     }
 
@@ -32,8 +31,8 @@ class App extends Component {
   }
 
   userHasAuthenticated = authenticated => {
-    this.setState({isAuthenticated: authenticated});
-  }
+    this.setState({ isAuthenticated: authenticated });
+  };
 
   handleLogout = event => {
     signOutUser();
@@ -41,24 +40,25 @@ class App extends Component {
     this.userHasAuthenticated(false);
 
     this.props.history.push('/');
-  }
+  };
 
   render() {
     const navBarProps = {
       isAuthenticated: this.state.isAuthenticated,
       handleLogout: this.handleLogout
-    }
+    };
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
       userHasAuthenticated: this.userHasAuthenticated
     };
 
     return (
-      !this.state.isAuthenticating &&
-      <div className='App'>
-        <NavBar {...navBarProps} />
-        <Routes childProps={childProps} />
-      </div>
+      !this.state.isAuthenticating && (
+        <div className="App">
+          <NavBar {...navBarProps} />
+          <Routes childProps={childProps} />
+        </div>
+      )
     );
   }
 }

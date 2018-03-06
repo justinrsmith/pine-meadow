@@ -1,17 +1,17 @@
 .navbar {
-  background-color: #006442!important;
+  background-color: #006442 !important;
 }
 .nav-tabs {
-  border-bottom: 1px solid #26C281;
+  border-bottom: 1px solid #26c281;
 }
 .nav-link.active:hover {
-  border-color: #26C281 #26C281 #F5F3EE!important;
-  background-color: #F5F3EE!important;
-  color: #006442!important;
+  border-color: #26c281 #26c281 #f5f3ee !important;
+  background-color: #f5f3ee !important;
+  color: #006442 !important;
 }
 .nav-link {
   height: 44px;
-  padding-left: 10px!important;
+  padding-left: 10px !important;
 }
 #login-logout-container {
   padding-left: 40px;

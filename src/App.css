@@ -1,9 +1,9 @@
 body {
-     background-color: #F5F3EE;
+  background-color: #f5f3ee;
 }
 a {
-    color: #26C281;
+  color: #26c281;
 }
 #stream-status {
-    max-width: 640px;
+  max-width: 640px;
 }

@@ -6,7 +6,7 @@ import {
   CognitoUser
 } from 'amazon-cognito-identity-js';
 
-import './Login.css'
+import './Login.css';
 import config from './config';
 
 class Login extends Component {
@@ -27,7 +27,7 @@ class Login extends Component {
     this.setState({
       [event.target.id]: event.target.value
     });
-  }
+  };
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -39,15 +39,15 @@ class Login extends Component {
     } catch (e) {
       alert(e);
     }
-  }
+  };
 
   login(email, password) {
     const userPool = new CognitoUserPool({
       UserPoolId: config.cognito.USER_POOL_ID,
       ClientId: config.cognito.APP_CLIENT_ID
     });
-    const user = new CognitoUser({Username: email, Pool: userPool});
-    const authenticationData = {Username: email, Password: password};
+    const user = new CognitoUser({ Username: email, Pool: userPool });
+    const authenticationData = { Username: email, Password: password };
     const authenticationDetails = new AuthenticationDetails(authenticationData);
 
     return new Promise((resolve, reject) =>
@@ -80,23 +80,25 @@ class Login extends Component {
                   />
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input
-                      id="password"
-                      className="form-control"
-                      type="password"
-                      value={this.state.password}
-                      onChange={this.handleChange}
-                      placeholder="Password"
-                    />
+                  <label for="password">Password</label>
+                  <input
+                    id="password"
+                    className="form-control"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    placeholder="Password"
+                  />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">
+                  Submit
+                </button>
               </form>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

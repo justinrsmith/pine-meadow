@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import StreamStatus from './StreamStatus'
+import StreamStatus from './StreamStatus';
 
 class Stream extends Component {
-  render () {
+  render() {
     return (
       <div className="col">
-        <StreamStatus/>
-        <img className="img-fluid" src={this.props.url} alt=""/>
+        <StreamStatus />
+        <img className="img-fluid" src={this.props.url} alt="" />
       </div>
-    )
+    );
   }
 }
 
