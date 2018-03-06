@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 import {
   CognitoUserPool,
@@ -6,6 +6,7 @@ import {
   CognitoUser
 } from 'amazon-cognito-identity-js';
 
+import './Login.css'
 import config from './config';
 
 class Login extends Component {
@@ -59,23 +60,41 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            autoFocus
-            id="email"
-            type="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <input
-            id="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
+      <div id="login-form-container" class="row">
+        <div className="col-md-6 offset-md-3 col-10 offset-1">
+          <div class="card">
+            <div class="card-header">
+              <h3>Login</h3>
+            </div>
+            <div class="card-body">
+              <form onSubmit={this.handleSubmit}>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input
+                    id="email"
+                    className="form-control"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    placeholder="Enter email"
+                  />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                      id="password"
+                      className="form-control"
+                      type="password"
+                      value={this.state.password}
+                      onChange={this.handleChange}
+                      placeholder="Password"
+                    />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

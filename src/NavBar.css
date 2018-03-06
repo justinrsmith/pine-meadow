@@ -1,25 +1,18 @@
 .navbar {
-    background-color: #006442!important;
+  background-color: #006442!important;
 }
 .nav-tabs {
-    border-bottom: 1px solid #26C281;
-}
-.nav-link.active {
-    border-color: #26C281 #26C281 #F5F3EE!important;
-    background-color: #F5F3EE!important;
+  border-bottom: 1px solid #26C281;
 }
 .nav-link.active:hover {
-    border-color: #26C281 #26C281 #F5F3EE!important;
-    background-color: #F5F3EE!important;
-}
-.nav-link:hover:not(.active) {
-    border-color: #40DC9B #40DC9B #26C281!important;
-    background-color: #F5F3EE!important;
-}
-.nav-link.disabled:hover {
-    border-color: #F5F3EE #F5F3EE #26C281 #F5F3EE!important;
-    background-color: #F5F3EE!important;
+  border-color: #26C281 #26C281 #F5F3EE!important;
+  background-color: #F5F3EE!important;
+  color: #006442!important;
 }
 .nav-link {
-    height: 44px;
+  height: 44px;
+  padding-left: 10px!important;
+}
+#login-logout-container {
+  padding-left: 40px;
 }

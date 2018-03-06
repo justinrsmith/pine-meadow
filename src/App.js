@@ -44,6 +44,10 @@ class App extends Component {
   }
 
   render() {
+    const navBarProps = {
+      isAuthenticated: this.state.isAuthenticated,
+      handleLogout: this.handleLogout
+    }
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
       userHasAuthenticated: this.userHasAuthenticated
@@ -52,12 +56,7 @@ class App extends Component {
     return (
       !this.state.isAuthenticating &&
       <div className='App'>
-        <NavBar />
-        {/*{this.state.isAuthenticated
-          ? <button onClick={this.handleLogout}>Logout</button>
-          : [
-              <a href='/login'>Login</a>
-          ]}*/}
+        <NavBar {...navBarProps} />
         <Routes childProps={childProps} />
       </div>
     );
