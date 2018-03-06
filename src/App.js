@@ -53,11 +53,11 @@ class App extends Component {
       !this.state.isAuthenticating &&
       <div className='App'>
         <NavBar />
-        {this.state.isAuthenticated
+        {/*{this.state.isAuthenticated
           ? <button onClick={this.handleLogout}>Logout</button>
           : [
               <a href='/login'>Login</a>
-          ]}
+          ]}*/}
         <Routes childProps={childProps} />
       </div>
     );

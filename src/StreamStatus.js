@@ -31,8 +31,8 @@ class StreamStatus extends Component {
 
         return (
             <ul id="stream-status" className="list-inline" style={{marginBottom: '0px'}}>
-                <li className="list-inline-item"><img alt="cat camera logo" style={{marginRight: '5px', marginBottom: '4px'}} className="nav-img" height="20" width="20" src={cat}/>Cam</li>
-                <li style={{marginTop: '5px'}} className="list-inline-item pull-right">{status}</li>
+                <li className="list-inline-item"><img alt="cat camera logo" style={{marginRight: '5px'}} className="nav-img" height="20" width="20" src={cat}/></li>
+                <li className="list-inline-item pull-right">{status}</li>
             </ul>
         )
     }
