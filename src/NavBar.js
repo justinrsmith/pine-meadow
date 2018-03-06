@@ -27,8 +27,8 @@ class NavBar extends Component {
             <li className="nav-item">
               <a href="/" className="nav-link active">
                 <img
+                  id="cat-camera-logo"
                   alt="cat camera logo"
-                  style={{ marginRight: '9px', marginBottom: '4px' }}
                   className="nav-img"
                   height="20"
                   width="20"
@@ -39,8 +39,8 @@ class NavBar extends Component {
             <li className="nav-item">
               <a className="nav-link disabled">
                 <img
+                  id="laser-camera-logo"
                   alt="laser camera logo"
-                  style={{ marginRight: '5px' }}
                   className="nav-img"
                   height="25"
                   src={laser}
@@ -59,11 +59,9 @@ class NavBar extends Component {
                   <i className="fa fa-sign-in" aria-hidden="true" /> Logout
                 </button>
               ) : (
-                [
-                  <a href="/login" class="btn btn-outline-light">
+                  <a href="/login" className="btn btn-outline-light">
                     <i className="fa fa-sign-in" aria-hidden="true" /> Login
                   </a>
-                ]
               )}
             </li>
           </ul>
