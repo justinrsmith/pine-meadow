@@ -7,6 +7,7 @@ import {
 } from 'amazon-cognito-identity-js';
 
 import './Login.css';
+import LoaderButton from './LoaderButton.js';
 import config from './config';
 
 class Login extends Component {
@@ -14,6 +15,7 @@ class Login extends Component {
     super(props);
 
     this.state = {
+      isLoading: false,
       email: '',
       password: ''
     };
@@ -32,12 +34,15 @@ class Login extends Component {
   handleSubmit = async event => {
     event.preventDefault();
 
+    this.setState({ isLoading: true });
+
     try {
       await this.login(this.state.email, this.state.password);
       this.props.userHasAuthenticated(true);
       this.props.history.push('/');
     } catch (e) {
       alert(e);
+      this.setState({ isLoading: false });
     }
   };
 
@@ -60,16 +65,16 @@ class Login extends Component {
 
   render() {
     return (
-      <div id="login-form-container" class="row">
+      <div id="login-form-container" className="row">
         <div className="col-md-6 offset-md-3 col-10 offset-1">
-          <div class="card">
-            <div class="card-header">
+          <div className="card">
+            <div className="card-header">
               <h3>Login</h3>
             </div>
-            <div class="card-body">
+            <div className="card-body">
               <form onSubmit={this.handleSubmit}>
-                <div class="form-group">
-                  <label for="email">Email address</label>
+                <div className="form-group">
+                  <label htmlFor="email">Email address</label>
                   <input
                     id="email"
                     className="form-control"
@@ -79,8 +84,8 @@ class Login extends Component {
                     placeholder="Enter email"
                   />
                 </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
                   <input
                     id="password"
                     className="form-control"
@@ -90,9 +95,13 @@ class Login extends Component {
                     placeholder="Password"
                   />
                 </div>
-                <button type="submit" class="btn btn-primary">
-                  Submit
-                </button>
+                <LoaderButton
+                  type="submit"
+                  disabled={!this.validateForm()}
+                  isLoading={this.state.isLoading}
+                  text="Submit"
+                  loadingText=" Logging in…"
+                />
               </form>
             </div>
           </div>
