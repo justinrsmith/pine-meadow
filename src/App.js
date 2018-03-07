@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import { authUser, signOutUser } from './libs/awsLib';
 
+import Alert from './components/Alert.js';
 import NavBar from './containers/NavBar';
 import Routes from './Routes';
 
@@ -14,7 +15,10 @@ class App extends Component {
 
     this.state = {
       isAuthenticated: false,
-      isAuthenticating: true
+      isAuthenticating: true,
+      showAlert: false,
+      alertType: null,
+      alertMessage: null
     };
   }
 
@@ -39,6 +43,12 @@ class App extends Component {
 
     this.userHasAuthenticated(false);
 
+    this.setState({
+      showAlert: true,
+      alertType: 'success',
+      message: 'You have been succesfully logged out.'
+    });
+
     this.props.history.push('/');
   };
 
@@ -46,6 +56,10 @@ class App extends Component {
     const navBarProps = {
       isAuthenticated: this.state.isAuthenticated,
       handleLogout: this.handleLogout
+    };
+    const alertProps = {
+      type: this.state.alertType,
+      message: this.state.message
     };
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
@@ -56,6 +70,7 @@ class App extends Component {
       !this.state.isAuthenticating && (
         <div className="App">
           <NavBar {...navBarProps} />
+          {this.state.showAlert && <Alert {...alertProps} />}
           <Routes childProps={childProps} />
         </div>
       )

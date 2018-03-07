@@ -7,7 +7,7 @@ class Stream extends Component {
     return (
       <div className="col">
         <StreamStatus />
-        <img className="img-fluid" src={this.props.url} alt="" />
+        {/*<img className="img-fluid" src={this.props.url} alt="" />*/}
       </div>
     );
   }
