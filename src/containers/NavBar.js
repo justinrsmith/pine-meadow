@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import './NavBar.css';
-import laser from './images/laser-icon.png';
-import cat from './images/cat-icon.png';
+import laser from '../images/laser-icon.png';
+import cat from '../images/cat-icon.png';
 
 class NavBar extends Component {
   render() {

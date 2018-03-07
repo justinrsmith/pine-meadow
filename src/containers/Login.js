@@ -7,8 +7,8 @@ import {
 } from 'amazon-cognito-identity-js';
 
 import './Login.css';
-import LoaderButton from './LoaderButton.js';
-import config from './config';
+import LoaderButton from '../components/LoaderButton.js';
+import config from '../config';
 
 class Login extends Component {
   constructor(props) {

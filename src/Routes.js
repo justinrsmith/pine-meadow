@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import AppliedRoute from './AppliedRoute';
-import Home from './Home';
-import Login from './Login';
-import NotFound from './NotFound';
+import AppliedRoute from './components/AppliedRoute';
+import Home from './containers/Home';
+import Login from './containers/Login';
+import NotFound from './containers/NotFound';
 
 export default ({ childProps }) => (
   <Switch>

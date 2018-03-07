@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import cat from './images/cat-icon.png';
+import cat from '../images/cat-icon.png';
 
 class StreamStatus extends Component {
   constructor(props) {

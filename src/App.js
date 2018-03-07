@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import { authUser, signOutUser } from './libs/awsLib';
 
-import NavBar from './NavBar';
+import NavBar from './containers/NavBar';
 import Routes from './Routes';
 
 import './App.css';
