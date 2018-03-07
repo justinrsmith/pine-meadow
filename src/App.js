@@ -35,7 +35,12 @@ class App extends Component {
   }
 
   userHasAuthenticated = authenticated => {
-    this.setState({ isAuthenticated: authenticated });
+    this.setState({
+      isAuthenticated: authenticated,
+      showAlert: true,
+      alertType: 'success',
+      message: 'You have been succesfully logged in.'
+    });
   };
 
   handleLogout = event => {
